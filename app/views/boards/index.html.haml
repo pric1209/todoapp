@@ -1,3 +1,20 @@
 .container
-  %h2 
-    - @board.title
+  %h2 All Board
+
+  - @boards.each do |board| 
+    = link_to board_path(board) do
+      .card
+        .card_detail
+          .card_title
+            = board.title
+          .dropdown
+            = image_tag 'CombinedShape.png'
+            .dropdown-content.mini
+              = link_to '編集する', new_board_path
+              -# = link_to '編集する' , edit_article_path(@article)
+              -# = link_to '削除する' , board_path(@board), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
+        = board.description
+        .board_detail
+        = image_tag 'Oval.png'
+  .create_board
+    = link_to '+ Add new board', new_board_path, class: "new_board" 

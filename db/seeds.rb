@@ -6,5 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Board.create({title: 'nameですよ', description: '詳細ですよ'})
-Board.create({title: 'nameですおおお', description: '詳細ですよおおおおお'})
+jon = User.create!(email: 'Jon@example.com', password: 'password')
+kanon = User.create!(email: 'kanon@example.com', password: 'password')
+
+jon.boards.create(title: 'nameですよ', description: '詳細ですよ')
+kanon.boards.create(title: 'nameですおおお', description: '詳細ですよおおおおお')
