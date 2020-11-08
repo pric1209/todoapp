@@ -10,9 +10,8 @@
           .dropdown
             = image_tag 'CombinedShape.png'
             .dropdown-content.mini
-              = link_to '編集する', new_board_path
-              -# = link_to '編集する' , edit_article_path(@article)
-              -# = link_to '削除する' , board_path(@board), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
+              = link_to 'Edit', edit_board_path(board.id)
+              = link_to 'Delete', board_path(board.id), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
         = board.description
         .board_detail
         = image_tag 'Oval.png'

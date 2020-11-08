@@ -1,13 +1,2 @@
 .container
-  .card
-    .card_detail
-      .card_title
-        = @board.title
-      .dropdown
-        = image_tag 'CombinedShape.png'
-        .dropdown-content.mini
-          = link_to 'Edit', edit_board_path(@board)
-          = link_to 'Destroy' , board_path(@board), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
-    = @board.description
-    .board_detail
-    = image_tag 'Oval.png'
+  %h2 タスク詳細ページ
