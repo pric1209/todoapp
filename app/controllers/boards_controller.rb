@@ -27,7 +27,7 @@ class BoardsController < ApplicationController
   def update
     @board = current_user.boards.build(board_params)
     if @board.update(board_params)
-      redirect_to board_path(@board)
+      redirect_to root_path
     else
       render :edit
     end
