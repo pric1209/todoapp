@@ -8,18 +8,36 @@ class BoardsController < ApplicationController
   end
 
   def new
-    @board = Board.new
+    @board = current_user.boards.build
   end
 
-  def create 
-    @board = Board.new(board_params)
-    if @board.save!
-      redirect_to board_path(@board), notice: '保存できたよ'
+  def create
+    @board = current_user.boards.build(board_params)
+    if @board.save
+      redirect_to board_path(@board)
     else
       render :new
     end
   end
 
+  def edit
+    @board = current_user.boards.find(params[:id])
+  end
+
+  def update
+    @board = current_user.boards.build(board_params)
+    if @board.update(board_params)
+      redirect_to board_path(@board)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    board = current_user.boards.find(params[:id])
+    board.destroy!
+    redirect_to root_path
+  end
 
 
   private 
