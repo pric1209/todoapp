@@ -7,11 +7,12 @@
         .card_detail
           .card_title
             = board.title
-          .dropdown
-            = image_tag 'CombinedShape.png'
-            .dropdown-content.mini
-              = link_to 'Edit', edit_board_path(board.id)
-              = link_to 'Delete', board_path(board.id), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
+          - if user_signed_in? && current_user.boards.exists?(id: board.id)
+            .dropdown
+              = image_tag 'CombinedShape.png'
+              .dropdown-content.mini
+                = link_to 'Edit', edit_board_path(board.id)
+                = link_to 'Delete', board_path(board.id), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
         = board.description
         .board_detail
         = image_tag 'Oval.png'
