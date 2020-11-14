@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: 'boards#index'
 
   resources :boards, only: [:create, :show, :new, :edit, :update, :destroy]
+
+  resources :tasks, only: [:create, :new, :show]
 end
