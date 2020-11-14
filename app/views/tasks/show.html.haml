@@ -1,5 +1,5 @@
 .container
   %h2= @task.title
-  - if task.eyecatch.attached?
+  - if @task.eyecatch.attached?
     .card_image
-      = image_tag task.eyecatch
+      = image_tag @task.eyecatch
