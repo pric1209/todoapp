@@ -5,6 +5,7 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @tasks = Task.all
   end
 
   def new
@@ -25,8 +26,9 @@ class BoardsController < ApplicationController
   end
 
   def update
-    @board = current_user.boards.build(board_params)
+    @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
+      # binding.pry
       redirect_to root_path
     else
       render :edit

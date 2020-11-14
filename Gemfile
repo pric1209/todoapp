@@ -25,6 +25,8 @@ gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'pry-rails'
+gem 'rails-i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
