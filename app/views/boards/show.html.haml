@@ -9,9 +9,9 @@
           - if user_signed_in? && current_user.tasks.exists?(id: task.id)
             .dropdown
               = image_tag 'CombinedShape.png'
-              -# .dropdown-content.mini
-              -#   = link_to 'Edit', edit_board_path(board.id)
-              -#   = link_to 'Delete', board_path(board.id), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
+              .dropdown-content.mini
+                = link_to 'Edit', edit_task_path(task.id)
+                = link_to 'Delete', task_path(task.id), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
         = task.description
         .board_detail
         = image_tag 'Oval.png'

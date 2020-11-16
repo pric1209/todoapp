@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :boards, only: [:create, :show, :new, :edit, :update, :destroy]
 
-  resources :tasks, only: [:create, :new, :show]
+  resources :tasks, only: [:create, :new, :show, :edit, :update, :destroy]
 end
