@@ -1,7 +1,7 @@
 .container
   %h2= @task.title
+  %p こんにちは
   - if @task.eyecatch.attached?
     .card_image
       = image_tag @task.eyecatch
   %p= @task.description
-      
