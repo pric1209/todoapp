@@ -28,7 +28,6 @@ class BoardsController < ApplicationController
   def update
     @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
-      # binding.pry
       redirect_to root_path
     else
       render :edit
@@ -37,6 +36,7 @@ class BoardsController < ApplicationController
 
   def destroy
     board = current_user.boards.find(params[:id])
+    # binding.pry
     board.destroy!
     redirect_to root_path
   end
