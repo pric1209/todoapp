@@ -4,15 +4,15 @@ class TasksController < ApplicationController
       @task = @board.tasks.build
       
     end
-
+    
     def create
-        board = Task.find(params[:task][:board_id])
-        @task = current_user.tasks.build(task_params)
-        if @task.save
-          redirect_to board_path(board)
-        else
-          render :new
-        end
+      board = Task.find(params[:board_id])
+      @task = current_user.tasks.build(task_params)
+      if @task.save
+        redirect_to board_path(board)
+      else
+        render :new
+      end
     end
 
     def show
