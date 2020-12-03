@@ -1,7 +1,15 @@
 .container
-  %h2= @board.title
+  %h2= @task.title
+  - if user_signed_in? && current_user.tasks.exists?(id: @task.id)
+    .dropdown
+      = image_tag 'CombinedShape.png'
+      .dropdown-content.mini
+        = link_to 'Edit'
+        = link_to 'Delete'
   - if @task.eyecatch.attached?
+    .card_image
+      = image_tag @task.eyecatch
     .card
-      .card_image
-        = image_tag @task.eyecatch
-      %3= @task.title
+      %p= @task.description
+    
+      

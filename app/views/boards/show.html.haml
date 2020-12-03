@@ -13,4 +13,7 @@
         = image_tag 'Oval.png'
         %p= I18n.l(task.deadline, format: :default)
   .create_board
-    = link_to '+ Add new board', new_board_task_path(@board), class: "new_board" 
+    = link_to new_board_task_path(@board) do
+      .new_board
+        + Add new board
+        
