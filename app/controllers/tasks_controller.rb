@@ -6,8 +6,8 @@ class TasksController < ApplicationController
     end
     
     def create
-      board = Task.find(params[:board_id])
-      @task = current_user.tasks.build(task_params)
+      board = Board.find(params[:board_id])
+      @task = board.tasks.build(task_params)
       if @task.save
         redirect_to board_path(board)
       else
@@ -16,7 +16,8 @@ class TasksController < ApplicationController
     end
 
     def show
-        @task = Task.find(params[:id])
+      binding.pry
+      @task = Task.find(params[:id])
     end
 
     def edit
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
 
     private 
     def task_params
-      params.require(:task).permit(:title, :description,:deadline, :eyecatch)
+      params.require(:task).permit(:title, :description,:deadline, :eyecatch, :user_id)
+      .merge(user_id:current_user.id)
     end
 end
