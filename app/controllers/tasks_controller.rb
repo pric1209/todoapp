@@ -16,8 +16,7 @@ class TasksController < ApplicationController
     end
 
     def show
-      binding.pry
-      @task = Task.find(params[:id])
+      @task = tasks.find(params[:id])
     end
 
     def edit
