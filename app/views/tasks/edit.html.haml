@@ -1,3 +1,22 @@
 .container
-  %h2 Edit Task
-  = render 'form', task:@task
+  %h2 Edit Board
+  = form_with(model: @task, url: board_task_path(board_id: @board.id, id: @task.id), method: 'put', local: true) do |f|
+    %div
+      = f.label :eyecatch, 'Eyecatch'
+    %div
+      = f.file_field :eyecatch
+    %div
+      = f.label :title, 'Name'
+    %div
+      = f.text_field :title, class: 'text'   
+    %div
+      = f.label :description, 'Descripton'
+    %div
+      = f.text_area :description
+    %div
+      = f.label :deadline, 'Deadline'
+    %div
+      = f.date_select :deadline
+
+    
+    = f.submit '保存', class: 'btn-primary'
