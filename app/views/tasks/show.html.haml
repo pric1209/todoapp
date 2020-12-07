@@ -1,15 +1,20 @@
 .container
-  %h2= @task.title
-  - if user_signed_in? && current_user.tasks.exists?(id: @task.id)
-    .dropdown
-      = image_tag 'CombinedShape.png'
-      .dropdown-content.mini
-        = link_to 'Edit'
-        = link_to 'Delete'
+  .card_detail
+    %h2= @task.title
+    - if user_signed_in? && current_user.tasks.exists?(id: @task.id)
+      .dropdown
+        = image_tag 'CombinedShape.png'
+        .dropdown-content.mini
+          = link_to 'Edit', edit_board_task_path(board_id: @board.id, id: @task.id)
+          = link_to 'Delete',board_task_path(board_id: @board.id, id: @task.id), data:{method: 'delete', confirm: '本当に削除してもよろしいですか？'}
   - if @task.eyecatch.attached?
     .card_image
       = image_tag @task.eyecatch
-    .card
-      %p= @task.description
+  .card
+    %p= @task.description
+  .create_board
+    = link_to board_tasks_path(@task) do
+      .new_board
+        + Add new board
     
       

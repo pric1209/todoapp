@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     end
 
     def show
-      binding.pry
+      @board = Board.find(params[:board_id])
       @task = Task.find(params[:id])
     end
 
@@ -35,9 +35,10 @@ class TasksController < ApplicationController
     end
     
     def destroy
+      board = Board.find(params[:board_id])
       task = current_user.tasks.find(params[:id])
       task.destroy!
-      redirect_to tasks_path
+      redirect_to board_path(board)
     end
 
     private 
