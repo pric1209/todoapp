@@ -41,6 +41,20 @@ class TasksController < ApplicationController
       redirect_to board_path(board)
     end
 
+    def edit
+        @task = current_user.tasks.find(params[:id])
+    end
+    
+    def update
+      @task = current_user.tasks.find(params[:id])
+      if @task.update(task_params)
+        # binding.pry
+        redirect_to task_path(@task)
+      else
+        render :edit
+      end
+    end
+
     private 
     def task_params
       params.require(:task).permit(:title, :description,:deadline, :eyecatch, :user_id)
