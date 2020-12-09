@@ -12,8 +12,13 @@
       = image_tag @task.eyecatch
   .card
     %p= @task.description
-  .create_board
-    = link_to board_tasks_path(@task) do
+  - @comments.each do |comment|
+    - if user_signed_in? && current_user.tasks.exists?(id: @task.id)
+      .dropdown
+        = image_tag 'CombinedShape.png'
+        %p= comment.content
+  .create_content
+    = link_to new_board_task_comment_path(board_id: @board, task_id: @task) do
       .new_board
         + Add new comment
     
