@@ -14,6 +14,6 @@
                 = link_to 'Delete', board_path(board.id), data:{ method: 'delete',confirm:'本当に削除してもよろしいですか？'}
         = board.description
         .board_detail
-        = image_tag 'Oval.png'
-  .create_board
+          = image_tag 'Oval.png'
+  .create_content
     = link_to '+ Add new board', new_board_path, class: "new_board" 
