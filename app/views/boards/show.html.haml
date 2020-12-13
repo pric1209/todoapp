@@ -12,7 +12,7 @@
         .board_detail
         = image_tag 'Oval.png'
         %p= I18n.l(task.deadline, format: :default)
-  .create_board
+  .create_content
     = link_to new_board_task_path(@board) do
       .new_board
         + Add new board
