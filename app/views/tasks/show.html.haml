@@ -8,8 +8,8 @@
           = link_to 'Edit', edit_board_task_path(board_id: @board.id, id: @task.id)
           = link_to 'Delete',board_task_path(board_id: @board.id, id: @task.id), data:{method: 'delete', confirm: '本当に削除してもよろしいですか？'}
   - if @task.eyecatch.attached?
-    .card_image
-      = image_tag @task.eyecatch
+    .task_image
+      = image_tag url_for(@image)
   .card
     %p= @task.description
   - @comments.each do |comment|
